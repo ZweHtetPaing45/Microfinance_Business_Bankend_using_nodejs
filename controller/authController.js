@@ -7,8 +7,8 @@ const jwt=require('jsonwebtoken');
 const transporter = nodemailer.createTransport({
     service : 'gmail',
     auth : {
-        user: 'zwehtetpaing232004@gmail.com',
-        pass: 'rjwtujdidbvctwgk'
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     }
 });
 
@@ -34,7 +34,7 @@ const register=async (req,res)=>{
 
         
         await transporter.sendMail({
-            from: 'zwehtetpaing232004@gmail.com',
+            from: process.env.EMAIL_USER,
             to: email,
             subject: 'OTP verification',
             text: `You otp is ${otp}`
@@ -157,7 +157,7 @@ const forgetPassword= async (req,res)=>{
 
         
         await transporter.sendMail({
-            from: 'zwehtetpaing232004@gmail.com',
+            from: process.env.EMAIL_USER,
             to: email,
             subject: 'OTP verification',
             text: `You otp is ${otp}`
