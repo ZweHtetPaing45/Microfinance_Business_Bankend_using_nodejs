@@ -6,7 +6,7 @@ const jwt=require('jsonwebtoken');
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.so',
-    port: 578,
+    port: 587,
     secure: false,
     auth : {
         user: process.env.EMAIL_USER,
